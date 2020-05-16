@@ -1,10 +1,10 @@
 #define MAJOR 1
 #define MINOR 1
-#define BUGFIX 0
+#define BUGFIX 1
 
 #define MAX 540
 #define SBUG 0
-#define	RBUG 1
+#define	RBUG 0
 
 #define BLACK 0 
 #define BLUE 1 
@@ -94,10 +94,14 @@ void loadFlower() {
 		}
 		f.setCol(col);
 
-		getline(myFile, line, '\n');
+		getline(myFile, line, ',');
 		f.setDry(atoi(line.c_str()));
 		//cout << "dry : " << atoi(line.c_str()) << endl;
 		
+		getline(myFile, line, '\n');
+		f.setMean(line);
+		//cout << line << endl;
+
 		flowers.push_back(f);
 	}
 	cout << "Loaded : Flowers" << endl;
@@ -299,7 +303,7 @@ pair<vector<float>, vector<float>> branch() {
 		else if (ans.compare("어버이날") == 0) tracker += 8;
 		else if (ans.compare("스승의날") == 0) tracker += 9;
 
-		if ((tracker - (tracker / 100) * 100) / 10 != 0) break;
+		if (tracker%10 != 0) break;
 		else cout << "유효하지 않은 입력입니다. 다시 입력해주세요. \n" << endl;
 	}
 	cout << "\n\n";
@@ -337,9 +341,10 @@ int main(int argc, char** argv) {
 		for (int i = 0; i < 10; i++) {
 			cout << adjval[i].second.getName();
 			if (RBUG) cout << "(" << adjval[i].first << ") / ";
+			cout << " : " << adjval[i].second.getMean() << endl;
 		}
 		cout << "\n\nrestart" << endl;
-
+		adjval.clear();
 	}
 	
 }

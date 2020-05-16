@@ -16,6 +16,7 @@ public:
 	void setEmo(vector<float> emo);
 	void setCol(vector<string> col);
 	void setDry(int dry);
+	void setMean(string mean);
 
 	int getID();
 	string getName();
@@ -23,6 +24,7 @@ public:
 	vector<float> getEmo();
 	vector<string> getCol();
 	int getDry();
+	string getMean();
 	
 	vector<float> normalize(vector<float> vec);
 
@@ -32,5 +34,6 @@ private:
 	vector<float> flowerPerson;
 	vector<float> flowerEmo;
 	vector<string> flowerColor;
+	string flowerMeaning;
 	int flowerDry;
 };

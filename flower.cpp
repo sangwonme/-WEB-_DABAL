@@ -9,6 +9,7 @@ void Flower::setPerson(vector<float> per) { flowerPerson = normalize(per); }
 void Flower::setEmo(vector<float> emo) { flowerEmo = normalize(emo); }
 void Flower::setCol(vector<string> col) { flowerColor = col; }
 void Flower::setDry(int dry) { flowerDry = dry; }
+void Flower::setMean(string mean) { flowerMeaning = mean; }
 
 int Flower::getID() { return flowerID; }
 string Flower::getName() { return flowerName; }
@@ -16,6 +17,7 @@ vector<float> Flower::getPerson() { return flowerPerson; }
 vector<float> Flower::getEmo() { return flowerEmo; }
 vector<string> Flower::getCol() { return flowerColor; }
 int Flower::getDry() { return flowerDry; }
+string Flower::getMean() { return flowerMeaning; }
 
 vector<float> Flower::normalize(vector<float> vec) {
 	vector<float> rvec;
