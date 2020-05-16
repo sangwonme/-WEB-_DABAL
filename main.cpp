@@ -1,6 +1,6 @@
 #define MAJOR 1
-#define MINOR 1
-#define BUGFIX 1
+#define MINOR 2
+#define BUGFIX 0
 
 #define MAX 540
 #define SBUG 0
@@ -339,9 +339,12 @@ int main(int argc, char** argv) {
 		sort(adjval.begin(), adjval.end(), cmp);
 		cout << "당신에게 추천드리는 꽃은..." << endl;
 		for (int i = 0; i < 10; i++) {
+			textcolor(WHITE, LIGHTBLUE);
 			cout << adjval[i].second.getName();
 			if (RBUG) cout << "(" << adjval[i].first << ") / ";
+			textcolor(LIGHTBLUE, BLACK);
 			cout << " : " << adjval[i].second.getMean() << endl;
+			textcolor(WHITE, BLACK);
 		}
 		cout << "\n\nrestart" << endl;
 		adjval.clear();
